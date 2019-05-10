@@ -1,0 +1,58 @@
+{
+  "Resistance" : {
+    "-LddA3ZyYUfSfMDA103Z" : {
+      "Date" : "29/04/2019",
+      "Resistance_antenne" : false,
+      "Resistance_switch" : false,
+      "Test_Final" : false,
+      "Time" : "14:57",
+      "VAL_Resistance_antenne" : 0,
+      "VAL_inductance_antenne" : 0,
+      "VAL_resistance_switch" : 0,
+      "inductance_antenne" : false,
+      "test_camera" : false,
+      "test_presence_connecteur" : false
+    },
+    "-LddFV0ImIFg5SIVyn-_" : {
+      "Date" : "29/04/2019",
+      "Resistance_antenne" : true,
+      "Resistance_switch" : true,
+      "Test_Final" : true,
+      "Time" : "15:21",
+      "VAL_Resistance_antenne" : 1,
+      "VAL_inductance_antenne" : 1,
+      "VAL_resistance_switch" : 1,
+      "inductance_antenne" : true,
+      "test_camera" : true,
+      "test_presence_connecteur" : true
+    }
+  },
+  "users" : {
+    "-LSjJomgNH0BIdb0ZhU1" : {
+      "Company" : "Iset Nabeul",
+      "admin" : "true",
+      "appToken" : "-LSjJomgNH0BIdb0ZhU1",
+      "disabled" : "false",
+      "email" : "benniaridha@gmail.com",
+      "firstname" : "Bennia",
+      "lastname" : "Ridha",
+      "password" : "tunis2",
+      "supervisor" : "true",
+      "uid" : "n5sNJ8LquAftOMl4jEyyBOwBd5v2",
+      "username" : "Bennia"
+    },
+    "-LSj_-yaSBDV7E5dRMu1" : {
+      "Company" : "Iset Nabeul",
+      "admin" : "true",
+      "appToken" : "-LSj_-yaSBDV7E5dRMu1",
+      "disabled" : "false",
+      "email" : "amdounii.hamza@gmail.com",
+      "firstname" : "Hamza",
+      "lastname" : "Amdouni",
+      "password" : "amdouni2018",
+      "supervisor" : "true",
+      "uid" : "N5vJjs1wn6VJeOQNA429RfirhmE2",
+      "username" : "amdouni"
+    }
+  }
+}
