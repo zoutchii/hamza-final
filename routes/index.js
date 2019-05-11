@@ -1005,9 +1005,10 @@ router.get('**', (req, res) => {
   next(err);	
 })
 
+/*
 router.get('**', (req, res) => {
 	return res.redirect('https://nz-hamza.herokuapp.com')
 })
-
+*/
 /* --------------------------------------------------------------------- */
 module.exports = router;
