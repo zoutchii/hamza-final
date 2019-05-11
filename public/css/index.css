@@ -275,7 +275,7 @@ header {
   z-index: 10;
 }
 nav {
-  background-color: #4A83E1;
+  background-color: #00CCFF;
   width: 100%;
   z-index: 16;
   border-bottom:1px solid #fff;
@@ -354,7 +354,7 @@ section {
 #tri span {
   border-width: 30px;
   border-style: solid;
-  border-color: #2467D7  transparent transparent transparent;
+  border-color: #0093B7  transparent transparent transparent;
 }
 #features {
   height:0px !important;
