@@ -29,7 +29,7 @@ router.get('/', function(req, res, next) {
 	if (req.session.userId) {
         //isAdmin=req.session.userdroits;
 		//console.log(isAdmin,' = ',req.session.userdroits);
-		res.render('dashboard',{admin: isAdmin});
+		res.render('resistance',{admin: isAdmin});
     }
     res.render('index', {page:'Home', menuId:'home'});
 });
@@ -94,22 +94,22 @@ router.post('/sessionLogin/', function(req, res, next) {
     }).catch(function(error) { console.log(error) });
 });	
 /* --------------------------------------------------------------------- */
-router.get('/dashboard/', function(req, res, next) {
+router.get('/resistance/', function(req, res, next) {
 	if (req.session.userId) {
         //isAdmin=req.session.userdroits;
 		//console.log(isAdmin,' = ',req.session.userdroits);
-		return res.render('dashboard',{admin: isAdmin});
+		return res.render('resistance',{admin: isAdmin});
     }
     res.render('index', {page:'Home', menuId:'home'});
 })
-router.post('/dashboard/', (req, res) => {
+router.post('/resistance/', (req, res) => {
 	if (req.session.userId) {
-		res.redirect('/templates_dashboard/');
+		res.redirect('/templates_resistance/');
     }
     res.render('index', {page:'Home', menuId:'home'});	
 })
-router.get('/templates_dashboard/', (req, res) => {
-	res.render('templates/dashboard');
+router.get('/templates_resistance/', (req, res) => {
+	res.render('templates/resistance');
 })
 /* --------------------------------------------------------------------- */
 router.get('/signout/', function(req, res, next) {
@@ -120,7 +120,7 @@ router.get('/signout/', function(req, res, next) {
 });
 router.get('/signup/', function(req, res, next) {
 	if (req.session.userId) {
-		res.redirect('/dashboard');
+		res.redirect('/resistance');
     }
     res.redirect('/signup/');
 });
