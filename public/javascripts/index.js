@@ -4,12 +4,12 @@ if(mobile) {
 	$(".icon").css({"visibility":"visible"});
 }
 var config = {
-    apiKey: "AIzaSyDLgsyBBUYmKiDy4WErgoOYi6iKnCY2cMc",
-    authDomain: "bennia-itansfo.firebaseapp.com",
-    databaseURL: "https://bennia-itansfo.firebaseio.com",
-    projectId: "bennia-itansfo",
-    storageBucket: "bennia-itansfo.appspot.com",
-    messagingSenderId: "608660233491"
+	apiKey: "AIzaSyDkaWB9BN_XNMpM5g_rduzNd41StSyhVyE",
+	authDomain: "pfee-95e72.firebaseapp.com",
+	databaseURL: "https://pfee-95e72.firebaseio.com",
+	projectId: "pfee-95e72",
+	storageBucket: "pfee-95e72.appspot.com",
+	messagingSenderId: "693047971279"
 };
 firebase.initializeApp(config);
 /* --------------------------------------------------------------- */
