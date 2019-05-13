@@ -998,17 +998,17 @@ router.post('/account/', (req, res) => {
 
 
 
-
+/*
 router.get('**', (req, res) => {
   var err = new Error('Not Found');
   err.status = 404;
   next(err);	
 })
-
-/*
-router.get('**', (req, res) => {
-	return res.redirect('https://nz-hamza.herokuapp.com')
-})
 */
+
+router.get('**', (req, res) => {
+	return res.redirect('https://ah-resist-app.herokuapp.com')
+})
+
 /* --------------------------------------------------------------------- */
 module.exports = router;
