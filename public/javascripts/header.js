@@ -24,8 +24,8 @@ var config = reload_config("./app.js");
 
 
 
-$('#main').css({"height": window.innerHeight+"px"});
-
+//$('#main').css({"height": window.innerHeight+"px"});
+//$('#main').css({"width":"100%","height":"auto","display":"flex"});
 $(document ).ready(function() {
   sideNavWidth = $(".sidenav").css("width");
   $('.spinner').css({"visibility": "hidden"});
@@ -79,7 +79,7 @@ $(document ).ready(function() {
     $('.spinner').css({"visibility": "visible"});
     var url = $(this).attr('href');
     location.hash = url;
-	console.log('***************************************'+url);
+	//console.log('82***************************************'+url);
     $('.nav-link').html($(this).html());
     $('.mainContainer').parent().removeClass('active');
     $(this).parent().addClass('active');
