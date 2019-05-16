@@ -214,7 +214,6 @@ router.post('/console/adddevice', (req, res) => {
 		return res.status(403).send('UNAUTHORIZED REQUEST!');
 	}
 });
-	
 router.post('/console/getdevices', (req, res) => {
 if (req.session.userId) {		
 		var docRef = db1.ref("devices");
@@ -224,6 +223,27 @@ if (req.session.userId) {
 				obj.push(data.val());
 			});		  
 			//console.log(JSON.stringify(obj));
+			res.setHeader('Content-Type', 'application/json');
+			res.status(200);
+			res.json(obj);
+			return res;		
+		}).catch(error => {
+			return res.status(400).send('error');
+		});
+		
+	}
+	else {
+		return res.status(403).send('UNAUTHORIZED REQUEST!');
+	}
+})
+router.post('/console/getresists', (req, res) => {
+if (req.session.userId) {		
+		var docRef = db1.ref("Resistance");
+		docRef.once("value", function(snapshot) {
+			var obj=[];
+			snapshot.forEach(function(data) {
+				obj.push(data.val());
+			});		  
 			res.setHeader('Content-Type', 'application/json');
 			res.status(200);
 			res.json(obj);
@@ -501,33 +521,63 @@ router.post('/console/settings', (req, res) => {
 	}
 });
 /* --------------------------------------------------------------------- */
-router.post('/getUserDevicesInfo/', (req, res) => {
+router.post('/getInfoResistance/', (req, res) => {
 	var _ref = [];
-	var docRef = db1.ref("linked_device");
+	var first=req.body.datedeb;
+	var second=req.body.datefin;
+	var firstDate = new Date(first.split('/')[2],first.split('/')[1],first.split('/')[0]);
+	var secondDate = new Date(second.split('/')[2],second.split('/')[1],second.split('/')[0]);
+	var docRef = db1.ref("Resistance");
 	docRef.once("value", function(snapshot) {
 		snapshot.forEach(function(doc) {
-			_ref.push(doc.val().device_ref)
-		});			
-			var d = [];	
-			var docRef1 = db1.ref("devices");
-			docRef1.once("value", function(snapshot) {
-				snapshot.forEach(function(doc) {
-					if(_ref.indexOf(doc.val().device_ref) != -1) {
-						d.push(doc.val());
-					}
-				});	
+			var third=doc.val().Date;
+			var thirdDate = new Date(third.split('/')[2],third.split('/')[1],third.split('/')[0]);
+			if (thirdDate>=firstDate && thirdDate<=secondDate) _ref.push(doc.val());
+		});
 			res.setHeader('Content-Type', 'application/json');
-			return res.status(200).send(d);
+			return res.status(200).send(_ref);//d);
 		}).catch(error => {
 			return res.status(403).send('Could Not Get Devices');
 		})
 		return true;
+})
+/* --------------------------------------------------------------------- */
+router.post('/getDataResist/', (req, res) => {
+	var d = [];	
+	var docRef1 = db1.ref("Resistance");
+	docRef1.once("value", function(snapshot) {
+		snapshot.forEach(function(doc) {
+			d.push(doc.val());
+		});
+		res.setHeader('Content-Type', 'application/json');
+		return res.status(200).send(d);
 	}).catch(error => {
-		console.log(error)
 		return res.status(403).send('Could Not Get Devices');
 	})
-	
-})
+})	
+/* --------------------------------------------------------------------- */
+router.post('/getDetailResist/', (req, res) => {
+	var d = [];	
+	var devRef = req.body.resist_ref;
+console.log('--------------2-'+devRef);
+	var docRef1 = db1.ref("Resistance");
+	docRef1.once("value", function(snapshot) {
+		var i=0;
+		snapshot.forEach(function(doc) {
+			var key = Object.keys(snapshot.val())[i];
+			if(key == devRef) {
+				d.push(doc.val());
+				//res.setHeader('Content-Type', 'application/json');
+				//return res.status(200).send(d);
+			}
+			i++;
+		});
+		res.setHeader('Content-Type', 'application/json');
+		return res.status(200).send(d);
+	}).catch(error => {
+		return res.status(403).send('Could Not Get Devices');
+	})
+})	
 /* --------------------------------------------------------------------- */
 router.post('/getmessages/', (req, res) => {
 	var d = [];	
