@@ -86,9 +86,9 @@
 			  <div class="sk-circle12 sk-child"></div>
 			</div>
 			<div class="data"></div>
-			<div class="txt">Devices</div>
+			<div class="txt">Resistances</div>
 		</div>
-		<div class="stat col-12 col-sm-12 col-md-5 col-lg-3 col-xl-3" id="linked-stat">
+		<!--<div class="stat col-12 col-sm-12 col-md-5 col-lg-3 col-xl-3" id="linked-stat">
 			<div class="sk-circle">
 			  <div class="sk-circle1 sk-child"></div>
 			  <div class="sk-circle2 sk-child"></div>
@@ -105,7 +105,7 @@
 			</div>
 			<div class="data"></div>
 			<div class="txt">Linked Devices</div>
-		</div>
+		</div>-->
 	</div>
 	<div class="sk-circle">
 	  <div class="sk-circle1 sk-child"></div>
@@ -125,7 +125,8 @@
 
 <script>
 	$("#console-stat .sk-circle").css({"visibility": "visible"});
-	$.post('/console/getdevices', function(data) {
+	$.post('/console/getresists', function(data) {
+		console.log(data.length);
 		$("#devices-stat .sk-circle").css({"visibility": "hidden"});
 		$("#devices-stat .data").text(data.length);
 	}).fail(function(error) {
@@ -147,7 +148,7 @@
 		}, 1500);
 	});
 
-	$.post('/console/getproducts', function(data) {
+	/*$.post('/console/getproducts', function(data) {
 		$("#linked-stat .sk-circle").css({"visibility": "hidden"});
 		$("#linked-stat .data").text(data.length);
 	}).fail(function(error) {
@@ -156,7 +157,7 @@
 		setTimeout(function() {
 			$('.alert-danger').hide();
 		}, 1500);
-	});
+	});*/
 $(document ).ready(function() {
 
 
