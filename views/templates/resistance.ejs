@@ -1,129 +1,132 @@
-<div id="main">
 <style>
-#container #device-lists {
-  text-align: center;
-  margin: 0px auto;
+#device_data table {
+	width: 100%;
+	margin-bottom: 3px;
 }
-#device-lists .device {
-  background: white;
-  border-radius: 15px;
-  border: 1px solid #607D8B;
-  text-align: left;
-  font-size: 120%;
-  color: #607D8B;
-  margin: 8px;
-  padding: 15px;
-  display: inline-block;
-}
-#device-lists .device:hover {
-  background: #607D8B;
-  cursor: pointer;
-  color: white;
-  border: 1px solid white;
-}
-.activeDevice {
-  background: #607D8B !important;
-  color: white !important;
-  border: 1px solid white !important;
-}
-
-#device-msg {
-  margin-top: 15px;
-}
-#device-msg table {
-  width: 100%;
-  border-radius: 1em;
-}
-#device-msg table tr {
+#device_data table tr {
   height: 45px;
-}
-#device-msg table thead {
   text-align: center;
+}
+#device_data table thead {
   color: white;
-  background: #00838F;
+  background: #0097A7;
   padding: 3px;
   border-bottom: 2px solid #80DEEA;
 }
-#device-msg table tbody tr {
-  width: 100%;
-  border-bottom: 1px solid #e0ebeb;
+#device_data table thead tr {
+	border-bottom: 1px solid white;
 }
-#device-msg table tbody tr:hover {
+#device_data table tbody tr {
+  border-bottom: 1px solid #00838F;
+}
+#device_data table tbody tr:hover {
   background: #c2f0f0;
+  cursor: pointer;
+}
+
+#device_select {
+	margin: 15px 0px;
+	text-align: center;
+	padding: 5px;
+}
+#device_select input {
+	margin: 5px 0px;
+	border: none;
+	border-bottom: 1px solid #80CBC4;
+	height: 45px;
+	padding: 3px;
+	color: gray;			
+	border-radius: 8px;
+	box-shadow: 3px 5px 3px #80CBC4;
+}
+#device_select input#update-chart{background: #FF6600 !important;color:#fff;}
+#device_select input#update-chart:hover{cursor:pointer;}
+#device_select input[type="date"]{width:200px;}
+#device_select select {
+	margin: 5px 0px;
+	border: none;
+	border-bottom: 1px solid #80CBC4;
+	height: 45px;
+	padding: 3px;
+	color: gray;
+	border-radius: 8px;
+	box-shadow: 3px 5px 3px #80CBC4;
 }
 
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media screen and (max-width: 575.98px) {
-  #device-lists .device {
-    width: 90%;
-  }
+	.voltage-current, .temperature {
+		display: none;
+	}
 }
 
 /* Small devices (landscape phones, 576px and up) */
 @media screen and (min-width: 576px) and (max-width: 767.98px) {
-  #device-lists .device {
-    width: 90%;
-  }
+	.voltage-current, .temperature {
+		display: none;
+	}
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media screen and (min-width: 768px) and (max-width: 991.98px) {
-  #device-lists .device {
-    width: 45%;
-  }
+	.voltage-current {
+		display: none;
+	}
+	.temperature {
+		display: ;
+	}
 }
 
 /* Large devices (desktops, 992px and up) */
 @media screen and (min-width: 992px) and (max-width: 1199.98px) {
-  #device-lists .device {
-    width: 35%;
-  }
+	.voltage-current, .temperature {
+		display: ;
+	}
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
 @media screen and (min-width: 1200px) {
-  #device-lists .device {
-    width: 35%;
-  }
+	.voltage-current, .temperature {
+		display: ;
+	}
 }
 
 </style>
 
+<div id="container">
+	<div id="device_select" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+		<label>From : </label><input class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3" type="date" id="data-date-deb">
+		<label>To : </label><input class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3" type="date" id="data-date-fin">
+		<input type="button" name="submit" id="update-chart" value="Display">
+		<!--<select class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3" name="select" id="selected-device">
+			<option value="null">No Device Selected</option>
+		</select>
+		<input class="col-12 col-sm-12 col-md-5 col-lg-4 col-xl-3" type="date" id="data-date">-->
+	</div>
+	<div id="device_data">
+		<table>
+			<thead>
+				<tr>
+					<th class="voltage-current">Date</th>
+					<th class="voltage-current">Time</th>
+					<th class="voltage-current">Test presence connecteur</th>
+					<th class="voltage-current">Test camera</th>
+					<th class="voltage-current">Resistance switch</th>
+					<th class="voltage-current">VAL resistance switch</th>
+					<th class="voltage-current">Resistance antenne</th>
+					<th class="voltage-current">VAL Resistance antenne</th>
+					<th class="voltage-current">inductance antenne</th>
+					<th class="voltage-current">VAL inductance antenne</th>
+				</tr>
+			</thead>
+			<tbody>
+				
+			</tbody>
+		</table>
+	</div>
 
-  <div id="container">
-    <div id="device-lists">
-    </div>
-    <div id="device-msg" class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-      <table>
-        <thead>
-          <tr style="text-align: center;">
-            <th colspan="1">Message</th>
-            <th colspan="1">Timestamp</th>
-          </tr>
-        </thead>
-        <tbody>
-
-          
-        </tbody>
-      </table>
-
-        <div class="sk-circle">
-          <div class="sk-circle1 sk-child"></div>
-          <div class="sk-circle2 sk-child"></div>
-          <div class="sk-circle3 sk-child"></div>
-          <div class="sk-circle4 sk-child"></div>
-          <div class="sk-circle5 sk-child"></div>
-          <div class="sk-circle6 sk-child"></div>
-          <div class="sk-circle7 sk-child"></div>
-          <div class="sk-circle8 sk-child"></div>
-          <div class="sk-circle9 sk-child"></div>
-          <div class="sk-circle10 sk-child"></div>
-          <div class="sk-circle11 sk-child"></div>
-          <div class="sk-circle12 sk-child"></div>
-        </div>
-    </div>
-    <div class="sk-circle">
+	<div class="sk-circle">
       <div class="sk-circle1 sk-child"></div>
       <div class="sk-circle2 sk-child"></div>
       <div class="sk-circle3 sk-child"></div>
@@ -137,93 +140,98 @@
       <div class="sk-circle11 sk-child"></div>
       <div class="sk-circle12 sk-child"></div>
     </div>
-  </div>
-
-  </div>
-</section>  
+</div>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script>
-/************************************************************************/
-if ('undefined' == typeof window.jQuery) {
-    console.log('// jQuery not present');
+// find matching tr in dashboard table 
+function findMatch(string, index) {
+	if(string == "")
+		$("table tbody .dev-data").show();
+	var temp = string.split('-');
+	string = parseInt(temp[2]).toString()+"/"+parseInt(temp[1]).toString()+"/"+temp[0].toString()
+	var re = new RegExp(string); //.replace(/\//g, "-")
+	var temp;
+	$.each( $("table tbody .dev-data"), function( key, value ) {
+		temp = $.parseHTML( value.innerHTML );
+		if((temp[index].innerHTML.toLowerCase().split(" ")[0].match(re)) == null)
+			$(this).hide();
+		else
+			$(this).show();
+	});
 }
-
+	/************************************************************************/
+	if ('undefined' == typeof window.jQuery) {
+		console.log('// jQuery not present');
+	}
+	
+	//$("#device_select input[type=date]").attr({'max': new Date().toJSON().split('T')[0]});
+	/*$( "input[type='date']" ).change(function() {
+			findMatch($(this).val(), 33);
+		});*/
+		
 $(document ).ready(function() {
 
-if ('undefined' !== typeof user.uid) {
-	//user.uid=session.userId
-}
-    $("#main > #container > .sk-circle").css({"visibility": "visible"});
-//if ('undefined' !== typeof user.uid) {
-	//console.log('user.uid = '+user.uid);
-    var data = {
-      'client_uid': user.uid 
-    }
-    $.post('/getUserDevicesInfo/', data, function(data) {
-      $("#container .sk-circle").css({"visibility": "hidden"});
-      if(data.length > 0) {
-        $("#container #device-lists").html('');
-        data.forEach(function(device) {
-          $("#container #device-lists").append(
-            '<div class="device">\
-                <div>Device Name: '+device.device_name+'</span></div>\
-                <div>Company Name: <span>'+device.company_name+'</span></div>\
-                <div>Device Ref: <span class="dev-ref">'+device.device_ref+'</span></div>\
-              </div>');
-        })
-      }
-      else {
-        $("#container #device-lists").append("No Devices To Display");
-      }
+    //$("#main > #container > .sk-circle").css({"visibility": "visible"});	
+	$("#chart-device_select input[type=date]").attr({'max': new Date().toJSON().split('T')[0]});
+	$("#device_select #update-chart").click(function(event) {
+		var datedeb=$("#device_select input[type=date]").first().val();
+		var datefin=$("#device_select input[type=date]").last().val();
+		$("#container .sk-circle").css({"visibility": "visible"});
+		$("#device_stat_data table tbody").html("");
+		if(datedeb == "null" || datefin == ""){
+			$('.alert-warning').text('Please provide a valid time interval').show();
+		      setTimeout(function() {
+		        $('.alert-warning').hide();
+		      }, 1500);
+		      $("#container .sk-circle").css({"visibility": "hidden"});
+		      return ;
+		}
+		var temp1 = $("#data-date-deb").val().split('-');
+		var temp2 = $("#data-date-fin").val().split('-');
+		console.log(temp1+'***'+temp2);
+		var datedeb = parseInt(temp1[2]).toString()+"/"+parseInt(temp1[1]).toString()+"/"+temp1[0].toString();
+		var datefin = parseInt(temp2[2]).toString()+"/"+parseInt(temp2[1]).toString()+"/"+temp2[0].toString()
+		var data = {
+			'datedeb': datedeb,
+			'datefin': datefin
+		}
+	   		$.post('/getInfoResistance/', data, function(data) {
+	   		  $('#device_data table tbody').html('');
+		      $("#container .sk-circle").css({"visibility": "hidden"});
+		      if(data.length > 0) {
+		      	data.sort((function (a, b) { return new Date(a.timestamp) - new Date(b.timestamp) }));
+		        $.each(data, function (i, item) {
+				    $('#device_data table tbody').append(
+				    	'<tr class="dev-data">\
+							<td class="voltage-current">'+item.Date+'</td>\
+							<td class="voltage-current">'+item.Time+'</td>\
+							<td class="voltage-current">'+item.test_presence_connecteur+'</td>\
+							<td class="voltage-current">'+item.test_camera+'</td>\
+							<td class="voltage-current">'+item.Resistance_switch+'</td>\
+							<td class="voltage-current">'+item.VAL_resistance_switch+'</td>\
+							<td class="voltage-current">'+item.Resistance_antenne+'</td>\
+							<td class="voltage-current">'+item.VAL_Resistance_antenne+'</td>\
+							<td class="voltage-current">'+item.inductance_antenne+'</td>\
+							<td class="voltage-current">'+item.VAL_inductance_antenne+'</td>\
+						</tr>');
+				});
+		      }
+		      else {
+		        
+		      }
 
-    }).fail(function(error) {
-      $("#container .sk-circle").css({"visibility": "hidden"});
-      $('.alert-danger').text('Could not get data').show();
-      setTimeout(function() {
-        $('.alert-danger').hide();
-      }, 1500);
-    });
-//}
+		    }).fail(function(error) {
+		      $("#container .sk-circle").css({"visibility": "hidden"});
+		      $('.alert-danger').text('Could not get data').show();
+		      setTimeout(function() {
+		        $('.alert-danger').hide();
+		      }, 1500);
+		    });
+	   });
+	   $("#container > .sk-circle").css({"visibility": "hidden"});
+	   
+});
 
-  $(document).on('click', '#device-lists .device', function(event) {
-    $('#device-lists .device').removeClass('activeDevice');
-    $(this).addClass('activeDevice');
-      $("#device-msg .sk-circle").css({"visibility": "visible"});
-      var ref = $(this).find('.dev-ref').text();
-      var data = {
-        'device_ref': ref
-      }
-      $("#device-msg table tbody").html('')
-      $.post('/getmessages/', data, function(data) {
-        $("#device-msg .sk-circle").css({"visibility": "hidden"});
-		
-        if(data.length > 0) {
-			$("#device-msg table tbody").empty();
-            data.forEach(function(msg) {
-            $("#device-msg table tbody").append(
-              '<tr dataId="'+msg._id+'">\
-                <td>'+msg.msg+'</td>\
-                <td>'+msg.timestamp+'</td>\
-              </tr>');
-          })
-        }
-        else {
-          $("#device-msg table tbody").html('<tr><td>No Messages To Display</td></tr>') 
-        }
-        
-      }).fail(function(error) {
-        $("#device-msg .sk-circle").css({"visibility": "hidden"});
-        $('.alert-danger').text('Could not get data').show();
-        setTimeout(function() {
-          $('.alert-danger').hide();
-        }, 1500);
-      });
-  });
-
-  $(document).on('click', "#device-msg table tbody tr", function(e) {
-    console.log($(this).attr('dataId'));
-  });  
-  
-});  
-/************************************************************************/  
 </script>
+
+
