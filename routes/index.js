@@ -1055,10 +1055,10 @@ router.get('**', (req, res) => {
   next(err);	
 })
 */
-
+/*
 router.get('**', (req, res) => {
 	return res.redirect('https://ah-resist-app.herokuapp.com')
 })
-
+*/
 /* --------------------------------------------------------------------- */
 module.exports = router;
